@@ -1,6 +1,8 @@
-import React, { Component } from 'react'
-import { Button, Form, Container, Header } from 'semantic-ui-react'
+import React, { Component } from 'react';
+import { Button, Form, Container, Header } from 'semantic-ui-react';
 import './App.css';
+import 'axios';
+import axios from 'axios';
 
 export default class App extends Component {
   constructor(props) {
@@ -21,6 +23,11 @@ export default class App extends Component {
   submitHandler = e => {
     e.preventDefault();
     console.log(this.state);
+
+    axios.post('https://sheet.best/api/sheets/06f8fc96-3868-4fa3-bff5-d41c934f4892', this.state)
+    .then(response => {
+      console.log(response);
+    })
   }
   
   render() {
